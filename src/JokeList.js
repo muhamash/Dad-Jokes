@@ -36,6 +36,7 @@ class JokeList extends Component{
                     j.id===id?{...j, votes:j.votes+delta}:j) //isnt j an obj? i can return it
             })
         )
+        console.log('call jachhe')
     }
 
     render(){
@@ -44,7 +45,7 @@ class JokeList extends Component{
                 <div className='JokeList-sidebar'>
                     <h1 className='JokeList-title'>
                         <span className=''>Dad</span> Jokes</h1>
-                        <img src='https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg'/>
+                        <img alt='laughing face' src='https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg'/>
                         <button className='JokeList-getmore'>Fetch Jokes</button>
                 </div>
                 
@@ -55,8 +56,8 @@ class JokeList extends Component{
                          key={j.id} 
                          votes={j.votes}
                          text={j.text}
-                         upvote={()=>this.handleVote(j.id, 1)}
-                         downvote={()=>this.handleVote(j.id,-1)}/> //bracket er baire = er ager ta prop jabe oi page e
+                         upvote={(evt)=>this.handleVote(j.id, 1)}
+                         downvote={(evt)=>this.handleVote(j.id,-1)}/> //bracket er baire = er ager ta prop jabe oi page e
                     ))}
                 </div>
             </div>

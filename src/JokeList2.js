@@ -8,23 +8,24 @@ import { v4 as uuidv4 } from "uuid";
 
 class JokeList2 extends Component {
   static defaultProps = {
-    numJokesToGet: 10,
+    numJokesToGet: 1,
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      
       jokes: JSON.parse(window.localStorage.getItem('jokes') ||'[]')//nahole parse kore 3rd bracket diye empty array ei dibe
     };
     this.handleVote=this.handleVote.bind(this);
     this.handleClick=this.handleClick.bind(this);
     this.getJokes=this.getJokes.bind(this);
+    this.clearJoke=this.clearJoke.bind(this);
+    this.handleRemove=this.handleRemove.bind(this);
   }
 
-   componentDidMount() {
-    if(this.state.jokes.length===0) this.getJokes();
-  } 
+  //   componentDidMount() {
+  //   if(this.state.jokes.length===0) this.getJokes();
+  // } 
 
   async getJokes(){
     let jokes = [];
@@ -47,8 +48,8 @@ class JokeList2 extends Component {
 
   handleVote(id, delta) {
     //delta can be negative/positive
-    console.log("Here");
-     this.setState((st) => ({
+   // console.log("Here");
+     this.setState((st) => ({ //age arekta object e niye then just object diye state set korte hobe without using LOOP inside setState
       //stil needing to bind
        jokes: st.jokes.map((j) =>
          j.id === id ? { ...j, votes: j.votes + delta } : j
@@ -57,11 +58,17 @@ class JokeList2 extends Component {
      ()=>window.localStorage.setItem('jokes',JSON.stringify(this.state.jokes)));
   }
   handleClick(){
-
    this.getJokes();
   }
  clearJoke(){
     localStorage.clear();
+    this.setState({jokes:[]})
+ }
+ handleRemove(id){
+  let updatedJokes=this.state.jokes.filter(j=>j.id!==id)
+  this.setState({
+    jokes:updatedJokes
+  })
  }
   render() {
     return (
@@ -84,6 +91,7 @@ class JokeList2 extends Component {
               text={j.text}
               id={j.id}
               handleVote={this.handleVote}
+              handleRemove={this.handleRemove}
             /> //bracket er baire = er ager ta prop jabe oi page e
           ))}
         </div>

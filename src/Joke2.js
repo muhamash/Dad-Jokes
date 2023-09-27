@@ -45,6 +45,7 @@ getEmoji() {
   render() {
     return (
       <div className='Joke'>
+        
         <div className='Joke-buttons'>
           <span className="vote-span" onClick={() => this.props.handleVote(this.props.id, 1)}>
             <i className='fas fa-arrow-up' />
@@ -55,10 +56,14 @@ getEmoji() {
           </span>{" "}
           {/* <i className='fas fa-arrow-down' onClick={()=>this.props.downvote(this.props.id, -1)}></i> */}
         </div>
-        <div className='Joke-text'>{this.props.text}</div>
-        <div className="Joke-smiley">
-        <i className={this.getEmoji()}/>
-        </div>
+
+          <div onClick={()=>this.props.handleRemove(this.props.id)} className='Joke-text'>{this.props.text}
+              <span><i className='fa-solid fa-xmark'></i></span>
+          </div>
+
+            <div className="Joke-smiley">
+            <i className={this.getEmoji()}/>
+          </div>
       </div>
     );
   }

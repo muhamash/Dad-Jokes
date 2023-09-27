@@ -12,11 +12,21 @@
     margin-right: 1rem;
     align-items: center;
     justify-content: center;
-    width: 15%;
+    width: 20%;
+}
+.Joke-2{
+    width: 80%;
+    border-bottom: 2px solid #eeeeee;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    padding: 1rem;
+    display: flex;
 }
 .Joke-text{
-    width: 75%;
+    width: 80%;
     font-size: 1.2rem;
+   
 }
 .Joke-vote{
     width: 50px;
@@ -74,27 +84,30 @@
 
   .Joke-smiley{
     font-size: 3rem;
-    margin-left: auto;
-    border-radius: 50%;
-    -webkit-box-shadow: -1px 3px 15px -2px rgba(13,13,13,1);
-    -moz-box-shadow: -1px 3px 15px -2px rgba(13,13,13,1);
-    box-shadow: -1px 3px 15px -2px rgba(13,13,13,1)
+    margin-left: auto; 
+    border-radius: 50%; 
+    /* width: 20%; */
+    align-items: center;
   }
   .Joke-delete{
     font-size: 2rem;
     margin-left: auto;
+    align-items: center;
+   
     /* border-radius: 100%; */
-  
+  }
+  .hide{
+    display: none;
   }
   /* .Joke-delete span{
     display: none;
   } */
-  .Joke-text span{
+  /* .Joke-text span{
     display: none;
   }
   .Joke-text:hover span{
-    display: inline-block;
-  }
+    display: inline;
+  } */
 
   .slide-left {
     animation: 1.5s slide-left;
@@ -107,13 +120,6 @@
       margin-left: 0%;
     }
   }
-  .Joke-smiley {
-    font-size: 3rem;
-    margin-left: auto;
-    border-radius: 50%;
-    box-shadow: 0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1);
-  }
-  
   .Joke-smiley:hover {
     animation-name: spin;
     animation-duration: 0.7s;
@@ -121,6 +127,8 @@
     animation-delay: 0s;
   }
   
+
+
   @keyframes spin {
     0% {
       transform: rotate(0deg);

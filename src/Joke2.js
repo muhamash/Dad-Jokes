@@ -2,11 +2,21 @@ import React, { Component } from "react";
 import './Joke.css';
 
 class Joke2 extends Component {
-//   constructor(props) {
-//     super(props);
-//     //console.log(props);
-//   }
-
+  constructor(props) {
+    super(props);
+    //console.log(props);
+    this.state={
+      isTrue:false
+    }
+    this.triggerHover=this.triggerHover.bind(this);
+  }
+ 
+triggerHover(){
+  this.setState({
+    isTrue:!this.state.isTrue
+  })
+  console.log('hovering')
+}
 getColor(){
     if (this.props.votes >= 15) {
         return "#4CAF50";
@@ -56,15 +66,20 @@ getEmoji() {
           </span>{" "}
           {/* <i className='fas fa-arrow-down' onClick={()=>this.props.downvote(this.props.id, -1)}></i> */}
         </div>
-
-          <div className='Joke-text'>{this.props.text}
-               <span onClick={()=>this.props.handleRemove(this.props.id)} className="Joke-delete slide-left">
-                  <i className="em em-x" />
-              </span>
-          </div>
+            <div className="Joke-2" onMouseEnter={this.triggerHover} onMouseLeave={this.triggerHover}>
+            <div className='Joke-text'>{this.props.text}
+            </div>
+               
             <div className="Joke-smiley">
             <i className={this.getEmoji()}/>
           </div>
+          <div className={this.state.isTrue ?'Joke-delete':'hide'}>
+              <span onClick={()=>this.props.handleRemove(this.props.id)} className="slide-left">
+                  <i className="em em-x" />
+              </span>
+          </div>
+            </div>
+          
       </div>
     );
   }

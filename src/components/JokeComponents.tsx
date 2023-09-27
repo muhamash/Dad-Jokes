@@ -44,10 +44,10 @@ export default class JokeComponent extends Component {
 
         return (
             <div>
-                <div>
-                    {/* Your component content */}
+                <div className='w-1/4 h-[10px] bg-slate-400'>
+                    <i className={emoji} />
+                    <p className={color}>test</p>
                 </div>
-                <div></div>
             </div>
         );
     }

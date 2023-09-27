@@ -36,7 +36,6 @@ class JokeList2 extends Component {
       jokes.push({ id: uuidv4(), text: res.data.joke, votes: 0 });
     }
     this.setState(st=>({
-        
         jokes:[...st.jokes,...jokes]
     }),
     ()=>window.localStorage.setItem('jokes',JSON.stringify(this.state.jokes)));

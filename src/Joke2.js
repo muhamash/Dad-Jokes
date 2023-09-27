@@ -57,10 +57,11 @@ getEmoji() {
           {/* <i className='fas fa-arrow-down' onClick={()=>this.props.downvote(this.props.id, -1)}></i> */}
         </div>
 
-          <div onClick={()=>this.props.handleRemove(this.props.id)} className='Joke-text'>{this.props.text}
-              <span><i className='fa-solid fa-xmark'></i></span>
+          <div className='Joke-text'>{this.props.text}
+               <span onClick={()=>this.props.handleRemove(this.props.id)} className="Joke-delete slide-left">
+                  <i className="em em-x" />
+              </span>
           </div>
-
             <div className="Joke-smiley">
             <i className={this.getEmoji()}/>
           </div>

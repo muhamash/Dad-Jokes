@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import JokeComponentObject from './types/types';
 
 const jokeComponentObject: JokeComponentObject = {
@@ -17,7 +16,9 @@ const jokeComponentObject: JokeComponentObject = {
     {
         const { emojiList, counter } = this;
         for (let i = 0; i < counter.length; i++) {
-            if (votes === counter[i]) {
+            if ( votes >= counter[i] )
+            {
+                console.log(emojiList[i], typeof(emojiList[i]))
                 return emojiList[i];
             }
         }
@@ -27,8 +28,9 @@ const jokeComponentObject: JokeComponentObject = {
     {
         const { colorList, counter } = this;
         for (let i = 0; i < counter.length; i++) {
-            if ( votes === counter[i] )
-            {
+            if ( votes >= counter[i] )
+            {   
+                console.log(colorList[i], typeof(colorList[i]))
                 return colorList[i];
             }
         }
@@ -36,19 +38,22 @@ const jokeComponentObject: JokeComponentObject = {
     }
 };
 
-export default class JokeComponent extends Component {
-    render() {
-        const votes = 6;
-        const emoji = jokeComponentObject.emojiFunction(votes);
-        const color = jokeComponentObject.colorFunction(votes);
+const  JokeComponent = () =>
+{
+    const votes = 12;
+    const emoji = jokeComponentObject.emojiFunction(votes);
+    const color = jokeComponentObject.colorFunction(votes);
 
-        return (
-            <div>
-                <div className='w-1/4 h-[10px] bg-slate-400'>
-                    <i className={emoji} />
-                    <p className={color}>test</p>
+    return (
+        <div>
+                <div className='w-1/4 h-[10px]'>
+                    <i className='emoji' />
+                    <p className='text-xl' style={{
+                        color: color,
+                    }}>test</p>
                 </div>
-            </div>
+        </div>
         );
-    }
 };
+
+export default JokeComponent;

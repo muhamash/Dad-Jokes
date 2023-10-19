@@ -46,12 +46,12 @@ const  JokeComponent = () =>
 
     return (
         <div>
-                <div className='w-1/4 h-[10px]'>
+                {/* <div className='w-1/4 h-[10px]'>
                     <i className='emoji' />
                     <p className='text-xl' style={{
                         color: color,
                     }}>test</p>
-                </div>
+                </div> */}
         </div>
         );
 };
